@@ -3,18 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
-//importing out Apollo tools
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
-//here we invoke the apollo client as well as invoke the memory cache
-const client = new ApolloClient({
-  uri: '/graphql',
-  caches: new InMemoryCache
-});
-// here we add the mutation to the app
 function App() {
   return (
-    <ApolloProvider client = { client }>
     <Router>
       <>
         <Navbar />
@@ -34,7 +25,6 @@ function App() {
         </Routes>
       </>
     </Router>
-    </ApolloProvider>
   );
 }
 
